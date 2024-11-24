@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-4" data-aos="fade-up">
+    <h2>{{ title }}</h2>
+    <form method="POST" action="{{ action_url }}">
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama Pempek:</label>
+            <input 
+                type="text" 
+                name="nama" 
+                id="nama" 
+                class="form-control" 
+                value="{{ pempek.nama if pempek else '' }}" 
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="harga" class="form-label">Harga:</label>
+            <input 
+                type="number" 
+                name="harga" 
+                id="harga" 
+                class="form-control" 
+                step="0.01" 
+                value="{{ pempek.harga if pempek else '' }}" 
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi:</label>
+            <textarea 
+                name="deskripsi" 
+                id="deskripsi" 
+                class="form-control" 
+                required>{{ pempek.deskripsi if pempek else '' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-custom">Simpan</button>
+    </form>
+</div>
+{% endblock %}
